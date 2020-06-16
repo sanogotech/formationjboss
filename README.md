@@ -1,3 +1,9 @@
+##  Uploader  postgresql-42.2.14.jar  
+sur http://localhost:9990/console
+
+
+#  Creer l'Aborescence
+
 
 ##  Datasource Postgres
 				<datasource jta="true" jndi-name="java:jboss/datasources/HelloWorldDS" pool-name="PostgresDS" enabled="true" use-ccm="false">
