@@ -20,7 +20,17 @@ Log  :  Level :  Trace,  Debug,  Info, Warn, ERROR
 
 --------------------
 JVM - JAVA
+ https://www.oracle.com/java/technologies/javase/vmoptions-jsp.html
+*****
+JAVA_OPTS=-Xms64M -Xmx512M
+-XX:MaxPermSize=64m
 
+1.  Standard
+JAVA_OPTS=-Xms521M -Xmx1512M  -XX:MaxPermSize=256 m
+2.  Forte Charge 
+JAVA_OPTS=-Xms1500M -Xmx1500M
+3. Forte Charge ++++
+JAVA_OPTS=-Xms1500M -Xmx4000M
 -------------------------
 Scalabilité Verticale : Machine/OS  CPU, RAM, Files, Carte reseau, Ethernet
 ------------------------
