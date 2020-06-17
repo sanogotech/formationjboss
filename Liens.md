@@ -26,6 +26,12 @@ https://github.com/jboss-developer/jboss-eap-quickstarts.git
 https://github.com/sanogotech/jboss-eap7-domains-labs
  ## JDBC  REALM
  http://www.mastertheboss.com/jboss-server/jboss-security/configure-an-elytron-jdbc-realm-on-wildfly-11
+ 
+ ## Oracle JVM  Param
+ https://www.oracle.com/java/technologies/javase/vmoptions-jsp.html
+ 
+ ## Datasource
+ https://docs.jboss.org/jbossas/docs/Server_Configuration_Guide/beta500/html/ch13s04s03s01.html
 
 
 
