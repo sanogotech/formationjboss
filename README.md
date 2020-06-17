@@ -2,7 +2,8 @@
 sur http://localhost:9990/console
 
 
-#  Creer l'Aborescence
+#  Log
+https://www.jtips.info/JBoss/LogManager
 
 
 ##  Datasource Postgres
@@ -35,16 +36,60 @@ sur http://localhost:9990/console
 * deploy --name=jboss-helloworld-html5.war --server-groups=secondary-server-group
 * deploy --name=HelloWorld-ear.ear --server-groups=main-server-group
 
-http://localhost:9990/console/App.html#hosts/domain-runtime
+* deploy –all-server-groups Deploie une application à tous les groupes de serveur
 
-Domaine  =   Controleur de domaine -- serveur group --Instances Jboss 7 ---- Controleur d’hote 
-https://developers.redhat.com/blog/2016/07/28/jboss-eap-7-domain-deployments-part-1-setup-a-simple-eap-domain/
-https://github.com/nelvadas/jboss-eap7-domains-labs
+* deploy –server-groups Deploie une application à un ou plusieurs groupes
 
-https://developers.redhat.com/blog/2016/08/05/jboss-eap-7-domain-deployments-part-2-domain-deployments-through-the-eap-7-0-management-console/
+## Standalone vs Domain
 
-https://developers.redhat.com/blog/2016/08/11/jboss-eap-7-domain-deployments-part-3-domain-deployment-with-common-language-interface-cli/
+0.  Spring Boot :  jar avec Tomcat
+------------------------ JEE = WAR + EJB +  HA = JBOOS Wildfly
+1.  Standalone :  standard
+2.  Standalone :  ha
+3.  Standalone: full-ha
+------------------------------Domain 
+4.  Complexité architecture deploiment / Supervision: Centralisation !
+5.  Domain // 2 hosts / 2 Serveur Group (profif  standard/ ha/ full-ha)
+--------------------
+EAP: Support ---  Zip,  RPM, Docker :  Documentation,  Suppport
 
- infrastructure topology with the list of EAP instances at http://localhost:9990/console/App.html#topology:
- 
- deploy ~/workspaces/wildfly-lab/samples/javaee7/target/javaee7-1.0-SNAPSHOT.war  --server-groups=main-server-group
+# Optimisation End to End
+
+
+
+
+-------------------------------------------  END - END -------------------------------------------------------------------------------------------
+PC -Navigateur --  //Infra// zip cache * Serveur HTTP  Threads 100 --  Serveur Web : JSP Servlet  --  Serveur  Application : EJB ///-  Serveur DB---  // DB = MaxConnection
+
+DB MAX = 100 
+
+
+250 pool
+
+250 pool
+
+250 p0ol
+
+250  pool
+
+-------------------------------
+XA      Serveur  JBOOSS  ------  DB  Gestion  + DB  Facturaction
+
+NON  XA  Serveur  JBOSS  ----- DB  ERP
+
+NON  XA  Serveur  JBOSS  -----  Cache ---- DB  ERP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
