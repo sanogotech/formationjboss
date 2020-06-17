@@ -1,3 +1,34 @@
+## Etape
+0.  DB :  MaxConnection :  Tuning /10 Requetes , Index
+
+-----------------JBOSS DATA + Transaction Business------
+1.  Vert - Orange --Datasource - DB
+2.  Vert-Orange Transaction Manager
+3.  Orange - Rouge EJB  / Container  + Pool EJB
+4.  Orange : JPA :  Hibernate --- Dev   persistence.xml
+5.  Rouge : Cache / Infinispan:  Dev 
+----------------------
+JBOSS -- Web/HTTP : Undertow
+JBOSS = Serveur HTTP + Serveur Web + Contenaur EJB+ Cache +++++ IHM  ADMIM + JBOSS CLI + CONF XML
+IO Web = Task keepalive: 60000
+-----------------------
+Log  :  Level :  Trace,  Debug,  Info, Warn, ERROR
+-------------------------------
+# Rouge Dev : Batch
+-----------------
+# Divers:    Deployment Scanners
+
+--------------------
+JVM - JAVA
+
+-------------------------
+Scalabilité Verticale : Machine/OS  CPU, RAM, Files, Carte reseau, Ethernet
+------------------------
+Scalabilité Horizontale:  Loabalancer,  HA cluster, Nosql, Bigdata
+
+-----
+Navigateur : IE 6 KO,  IE9  
+**********************************************************
 ## JVM
 ** standalone.bat.conf
 JAVA_OPTS
@@ -11,6 +42,10 @@ set "JAVA_OPTS=-Xms64M -Xmx512M"
 subsystem :undertow
 Web/HTTP - Undertow
 
+Default session timeout:
+30 mn.
+
+Gzip//  Compression
  <!-- ADD THIS FOR GZIP COMPRESSION -->
   <filter-ref name="gzipFilter" predicate="exists['%{o,Content-Type}'] and regex[pattern='(?:application/javascript|text/css|text/html|text/xml|application/json)(;.*)?', value=%{o,Content-Type}, full-match=true]"/>  
   <!-- /GZIP COMPRESSION -->
@@ -18,22 +53,30 @@ Web/HTTP - Undertow
 ##  Threads
 * standalone.xml
 subsystem :io
-
+--------------------------------------
 Io-thread	= undefined => Default IO Threads = CPU  count * 2
 Task-max-thread = undefined => Default Max Threads = CPU count * 16
-timeout 
+----------------------------------------------------
+
+timeout Task keepalive:
+60000
 
 ## Transaction
 Transaction Manager : Timeout
 
+1. Default timeout:	The default timeout for a transaction managed by the transaction manager.
+Default timeout:
+300 ms
+
 ## Pool  Datasource
 * standalone.xml
 subsystem :  datasource
-
+--  RAS :  "100 max   min 20     init 30"
 <min-pool-size> - the minimum number of connections in the pool (default 0 - zero)
 
 <max-pool-size> - the maximum number of connections in the pool (default 20)
 
+-- Option :ERROR
 <blocking-timeout-millis> - the length of time to wait for a connection to become available when all the connections are checked out (default 5000 == 5 seconds, from 3.2.4 it is 30000 == 30 seconds)
 
 <idle-timeout-minutes> - the number of minutes after which unused connections are closed (default 15 minutes)
@@ -52,5 +95,8 @@ default-acces-timeout =5000
 
 ## DB 
 - MaxConnection
+
+# LOG
+Log  :  Level :  Trace,  Debug,  Info, Warn, ERROR
 
 
