@@ -21,6 +21,7 @@ public class GreetingsBean {
     public GreetingsBean() {
         //System.out.println("Created GreetingsBean instance...");
         log.info("Created GreetingsBean instance...");
+		///log.debug
     }
     
     public String getUserName() {
