@@ -1,3 +1,17 @@
+## Changer de Port
+bin/standalone.bat   # Default
+
+bin/standalone.bat  -c standalone.xml -Djboss.socket.binding.port-offset=0  #  Idem  Default
+
+bin/standalone.bat  -c standalone.xml -Djboss.socket.binding.port-offset=100  #  Decalage de port 8080 / 9990 / 8443
+
+
+
+---------------------------
+standlone.bat  = standalone.bat  -c standalone.xml -Djboss.socket.binding.port-offset=500
+
+standlone.bat = standalone.bat  -Djboss.socket.binding.port-offset=500
+
 ##  Add User Admin
 add-user.bat -m   -u  admin -p admin123   #  en une ligne 
 add-user.bat  #  interactif mode
@@ -15,7 +29,16 @@ jboss-cli.bat    --connect  --command=:reload  #  connect + command
 
 jboss-cli.bat  --connect  --file=mycommand.cli  ##   execuction command file
 
+## Haute Disponibilité
+bin/standalone.sh -c standalone-full-ha.xml -Djboss.node.name=nodeA
+bin/standalone.sh -c standalone-full-ha.xml -Djboss.socket.binding.port-offset=500 -Djboss.node.name=nodeB
 
+
+bin/standalone.bat -c standalone-full-ha.xml -Djboss.node.name=nodeA
+bin/standalone.bat  -c standalone-full-ha.xml -Djboss.socket.binding.port-offset=500 -Djboss.node.name=nodeB
+
+# keytool  cmd vs Keytool explorer tools
+https://keystore-explorer.org/
 
 ##  Uploader  postgresql-42.2.14.jar  
 sur http://localhost:9990/console
