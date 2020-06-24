@@ -1,9 +1,43 @@
+##  Add User Admin
+add-user.bat -m   -u  admin -p admin123   #  en une ligne 
+add-user.bat  #  interactif mode
+
+# Urls
+http://localhost:8080   #  User IHM
+http://localhost:9990  #  Admin Console
+https://locathost:8443  # User IHM https
+
+## JBOSS CLI
+jboss-cli.bat    --connect    # windows
+jboss-cli.sh    --connect    # linux
+
+jboss-cli.bat    --connect  --command=:reload  #  connect + command
+
+jboss-cli.bat  --connect  --file=mycommand.cli  ##   execuction command file
+
+
+
 ##  Uploader  postgresql-42.2.14.jar  
 sur http://localhost:9990/console
 
 
 #  Log
 https://www.jtips.info/JBoss/LogManager
+
+# Persistence.xml
+
+     <persistence-unit name="primary">
+      <!-- If you are running in a production environment, add a managed 
+         data source, this example data source is just for development and testing! -->
+      <!-- The datasource is deployed as <EAR>/META-INF/HelloWorld-ds.xml, you
+         can find it in the source at ear/src/main/application/META-INF/HelloWorld-ds.xml -->
+      <jta-data-source>java:jboss/datasources/HelloWorldDS</jta-data-source>
+      <properties>
+         <!-- Properties for Hibernate -->
+         <property name="hibernate.hbm2ddl.auto" value="update" />
+         <property name="hibernate.show_sql" value="false" />
+      </properties>
+   </persistence-unit>
 
 
 ##  Datasource Postgres
